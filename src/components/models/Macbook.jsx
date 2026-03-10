@@ -14,6 +14,14 @@ import useMacbookStore from "../../store/index.js";
 import { noChangeParts } from "../../constants/index.js";
 import { Color } from "three";
 
+/**
+ * Renders a 3D MacBook model with runtime color and screen texture applied.
+ *
+ * Applies the store-provided color to all mesh parts except those listed in `noChangeParts` and maps the store-provided texture to the screen mesh.
+ *
+ * @param {Object} props - Props forwarded to the root group element.
+ * @returns {JSX.Element} A group containing the macbook meshes with updated material colors and the screen video texture.
+ */
 export default function MacbookModel(props) {
   const { color, texture } = useMacbookStore();
   const { nodes, materials, scene } = useGLTF(
